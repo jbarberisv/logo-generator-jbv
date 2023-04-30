@@ -1,22 +1,26 @@
 const inquirer = require('inquirer');
 const fs = require('fs');
 const { default: Choices } = require('inquirer/lib/objects/choices');
-const {Circle, Triangle, Square} = require('./lib/shapes');
-const { switchAll } = require('rxjs');
+const Circle = require('./lib/shapes');
+const Triangle = require('./lib/shapes');
+const Square = require('./lib/shapes');
 const { log } = require('console');
 
 function generateLogo(parameters) {
+    console.log(parameters.shape);
     switch (parameters.shape) {
         case 'Circle':
-            const circleLogo = new Circle.generate(parameters.text , parameters.textColor, parameters.color);
-            break;
+            const circleLogo = new Circle(parameters.text , parameters.textColor, parameters.color);
+            return circleLogo.generate();
+            
         case 'Triangle':
-        
-        break;
+            const triangleLogo = new Triangle(parameters.text , parameters.textColor, parameters.color);
+            return triangleLogo.generate();
+
 
         case 'Square':
-        
-        break;
+            const squareLogo = new Square(parameters.text , parameters.textColor, parameters.color);
+            return squareLogo.generate();
 
         default:
             console.log('Pls insert a Shape');
@@ -57,10 +61,18 @@ function questions () {
         console.log(answers)
   
         return generateLogo(answers);
-  
-  
-  
+
       })
+      .then((data) => {
+        console.log(data);
+        fs.writeFile('./examples/logo.svg', data,(err)=> {
+          if(err){
+            console.log('error',err); 
+          }
+          console.log('SVG Logo generated!');
+        })
+      })
+
 }
 
 questions()
