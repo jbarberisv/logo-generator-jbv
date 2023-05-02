@@ -1,9 +1,7 @@
 const inquirer = require('inquirer');
 const fs = require('fs');
 const { default: Choices } = require('inquirer/lib/objects/choices');
-const Circle = require('./lib/shapes');
-const Triangle = require('./lib/shapes');
-const Square = require('./lib/shapes');
+const {Circle, Triangle, Square} = require('./lib/shapes');
 const { log } = require('console');
 
 function generateLogo(parameters) {
