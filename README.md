@@ -5,6 +5,7 @@
 
   - [Description](#description)
   - [Features & Technology](#features-and-technology)
+  - [Screenshot](#Screenshot)
   - [Credits](#credits)
 
   ## Description
@@ -12,6 +13,10 @@
   
   ## Features and Technology
   node.js, inquirer, jest, FS
+
+  ## Screenshot
+
+  [clickhere](https://github.com/jbarberisv/logo-generator-jbv/blob/main/assets/img/logo%20Screenshot.png?raw=true) to view screenshot.
 
   
   ## Credits
